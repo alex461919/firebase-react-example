@@ -1,0 +1,17 @@
+.MuiDataGrid-row.my-account-background {
+  background-color: rgba(0, 218, 7, 0.24);
+  &.Mui-selected {
+    background-color: rgba(0, 218, 7, 0.32) !important ;
+  }
+  &:hover {
+    background-color: rgba(0, 218, 7, 0.38) !important ;
+  }
+}
+
+.MuiDataGrid-root .MuiDataGrid-cell:focus-within {
+  outline: none !important;
+}
+
+.MuiDataGrid-root .MuiDataGrid-columnHeader:focus-within {
+  outline: none !important;
+}

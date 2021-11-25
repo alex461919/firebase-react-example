@@ -1,0 +1,35 @@
+/* eslint-disable no-undef */
+importScripts('https://www.gstatic.com/firebasejs/9.4.0/firebase-app-compat.js');
+importScripts('https://www.gstatic.com/firebasejs/9.4.0/firebase-messaging-compat.js');
+
+const firebaseConfig = {
+  apiKey: 'AIzaSyDWbELxOMeeYD8SyGpaVSJX0bJkKbPredE',
+  authDomain: 'test-firebase-project-11231.firebaseapp.com',
+  databaseURL: 'https://test-firebase-project-11231-default-rtdb.firebaseio.com',
+  projectId: 'test-firebase-project-112316',
+  storageBucket: 'test-firebase-project-11231.appspot.com',
+  messagingSenderId: '664059731150',
+  appId: '1:664089236150:web:a92e2f1414c11231e8c17',
+  measurementId: 'G-HGYTPW96J8',
+};
+
+firebase.initializeApp(firebaseConfig);
+
+const messaging = firebase.messaging();
+const broadcast = new BroadcastChannel('incoming-background-message');
+
+messaging.onBackgroundMessage(function (payload) {
+  console.log('[firebase-messaging-sw.js] Received background message ', payload);
+  broadcast.postMessage(payload);
+
+  /*
+  const notificationTitle = payload.notification?.title || 'Background Message Title';
+  const notificationOptions = {
+    body: payload.notification?.body || 'Background Message body.',
+    icon: 'firebase-logo-512x512.png',
+    badge: 'firebase-logo-512x512.png',
+  };
+
+    self.registration.showNotification(notificationTitle, notificationOptions);
+*/
+});

@@ -1,0 +1,11 @@
+export const firebaseConfig = {
+  apiKey: 'AIzaSyDWb12345eYD8SyGpaVSJX0bJkKbPYl2E',
+  authDomain: 'test-firebase-project-12345.firebaseapp.com',
+  databaseURL: 'https://test-firebase-project-12345-default-rtdb.firebaseio.com',
+  projectId: 'test-firebase-project-12345',
+  storageBucket: 'test-firebase-project-12345.appspot.com',
+  messagingSenderId: '664089123450',
+  appId: '1:664089236150:web:a92e2f112345f97ee8c17',
+  measurementId: 'G-HGYNPX9WJ8',
+};
+export const vapidKey = 'BCn7X5ZuzHWgW6TJz12345BDvT8rHieqlHktGyIwpeO012345ljdIbkL4OkWO7jVzCTecSC3TUKHoK7yoBCJM';
