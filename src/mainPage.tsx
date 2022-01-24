@@ -28,8 +28,8 @@ export const MainPage: React.FC = () => {
     }
     Promise.all(
       recipients.map(async (item): Promise<boolean> => {
-        if (!item.fcm_token) return false;
-        return sendMessageToUser({ ...message, token: item.fcm_token })
+        if (!item.fcmToken) return false;
+        return sendMessageToUser({ ...message, token: item.fcmToken })
           .then(() => true)
           .catch((error) => {
             console.error(error);

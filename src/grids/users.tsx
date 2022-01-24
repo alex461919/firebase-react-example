@@ -44,9 +44,9 @@ const remoteUsersToRows = (list: Array<Visitor>) => {
     col1: item.displayName,
     col2: item.email,
     col3: item.providerId,
-    col4: (item.last_signin_at && new Date(item.last_signin_at).toLocaleString()) || '',
-    col5: (item.last_refresh_at && new Date(item.last_refresh_at).toLocaleString()) || '',
-    col6: !!item.fcm_token,
+    col4: (item.signIn_at && new Date(item.signIn_at).toLocaleString()) || '',
+    col5: (item.refresh_at && new Date(item.refresh_at).toLocaleString()) || '',
+    col6: !!item.fcmToken,
   }));
 };
 

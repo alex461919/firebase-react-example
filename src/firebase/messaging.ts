@@ -61,9 +61,9 @@ export const useBackgroundMessage = (): BaseMessage | null => {
 const saveFCMTokenOnServer = (user: firebase.User, token: string | null) => {
   firebase
     .firestore()
-    .collection('/lastAuth/')
+    .collection('/last/')
     .doc(user.uid)
-    .set({ fcm_token: token, fcm_token_refresh_at: serverTimestamp() }, { merge: true })
+    .set({ fcmToken: token, fcmTokenRefresh_at: serverTimestamp() }, { merge: true })
     .catch((error) => {
       console.log('saveFCMToken error: ', error);
     });

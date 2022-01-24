@@ -5,10 +5,10 @@ import { useEffect, useState } from 'react';
 import { useCurrentUser } from './auth';
 
 export interface Visitor extends firebase.UserInfo {
-  last_signin_at: number | null;
-  last_refresh_at: number | null;
-  fcm_token: string | null;
-  fcm_token_refresh_at: number | null;
+  signIn_at: number | null;
+  refresh_at: number | null;
+  fcmToken: string | null;
+  fcmTokenRefresh_at: number | null;
 }
 
 export const useVisitors = () => {
@@ -18,7 +18,7 @@ export const useVisitors = () => {
     if (user) {
       return firebase
         .firestore()
-        .collection('/lastAuth')
+        .collection('/last/')
         .onSnapshot({ includeMetadataChanges: true }, (snapshot) => {
           if (!snapshot.metadata.hasPendingWrites) {
             const list: Array<Visitor> = [];
@@ -32,10 +32,10 @@ export const useVisitors = () => {
                 photoURL: data.photoURL,
                 providerId: data.providerId,
                 uid: data.uid,
-                last_signin_at: (data.last_signin_at as Timestamp)?.toMillis() || null,
-                last_refresh_at: (data.last_refresh_at as Timestamp)?.toMillis() || null,
-                fcm_token_refresh_at: (data.fcm_token_refresh_at as Timestamp)?.toMillis() || null,
-                fcm_token: data.fcm_token,
+                signIn_at: (data.signIn_at as Timestamp)?.toMillis() || null,
+                refresh_at: (data.refresh_at as Timestamp)?.toMillis() || null,
+                fcmTokenRefresh_at: (data.fcmTokenRefresh_at as Timestamp)?.toMillis() || null,
+                fcmToken: data.fcmToken,
               });
             });
             setList(list);

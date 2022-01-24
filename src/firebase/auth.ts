@@ -77,15 +77,14 @@ const saveAuthOnServer = async (authResult: firebase.auth.UserCredential) => {
     try {
       return firebase
         .firestore()
-        .collection('/lastAuth/')
+        .collection('/last/')
         .doc(user.uid)
         .set({
           displayName: user.displayName,
           email: user.email,
           providerId: authResult.additionalUserInfo?.providerId || null,
           uid: user.uid,
-          last_signin_at: serverTimestamp(),
-          refresh_at: serverTimestamp(),
+          signIn_at: serverTimestamp(),
         });
     } catch (error) {
       console.log('sendAuth error: ', error);
@@ -98,9 +97,9 @@ const refreshAuthOnServer = async (authResult: firebase.auth.UserCredential) => 
     try {
       return firebase
         .firestore()
-        .collection('/lastAuth/')
+        .collection('/last/')
         .doc(user.uid)
-        .set({ last_refresh_at: serverTimestamp() }, { merge: true });
+        .set({ refresh_at: serverTimestamp() }, { merge: true });
     } catch (error) {
       console.log('sendAuth error: ', error);
     }

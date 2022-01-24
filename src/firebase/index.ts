@@ -4,10 +4,10 @@ import { initMessagingObserver } from './messaging';
 import { senderRegister } from './sender';
 
 export interface Visitor extends firebase.UserInfo {
-  last_signin_at: number | null;
-  last_refresh_at: number | null;
-  fcm_token: string | null;
-  fcm_token_refresh_at: number | null;
+  signIn_at: number | null;
+  refresh_at: number | null;
+  fcmToken: string | null;
+  fcmTokenRefresh_at: number | null;
 }
 
 export const initFirebaseApp = (firebaseConfig: Object) => {
