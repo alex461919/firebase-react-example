@@ -12,7 +12,7 @@ export const AuthSide: React.FC = () => {
           <Typography component="span">Hi,&nbsp;&nbsp;{user.displayName} !</Typography>
         </Grid>
         <Grid item>
-          <Button variant="outlined" onClick={firebase.auth().signOut}>
+          <Button variant="outlined" onClick={() => firebase.auth().signOut()}>
             Sign-out
           </Button>
         </Grid>
